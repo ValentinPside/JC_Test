@@ -8,8 +8,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Modifier
-import com.example.jc_test_one.ui.theme.CardTest
 import com.example.jc_test_one.ui.theme.JC_Test_OneTheme
+import com.example.jc_test_one.ui.theme.PostCard
 
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
                         .fillMaxSize()
                         .background(MaterialTheme.colorScheme.background)
                 ) {
-                    CardTest()
+                    PostCard()
                 }
             }
         }
