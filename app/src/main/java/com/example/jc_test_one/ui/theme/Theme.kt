@@ -35,7 +35,6 @@ private val LightColorScheme = lightColorScheme(
     onTertiary = Color.Black,
     onBackground = Color.Black,
     onSurface = Color.Black,
-
 )
 
 @Composable
