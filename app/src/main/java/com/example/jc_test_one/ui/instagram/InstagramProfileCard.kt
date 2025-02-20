@@ -1,4 +1,4 @@
-package com.example.jc_test_one.ui.theme
+package com.example.jc_test_one.ui.instagram
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -31,6 +31,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.jc_test_one.R
+import com.example.jc_test_one.ui.theme.JC_Test_OneTheme
 
 @Composable
 fun CardTest() {
@@ -99,7 +100,6 @@ fun InstagramProfileCard() {
             )
         }
     }
-
 }
 
 @Composable

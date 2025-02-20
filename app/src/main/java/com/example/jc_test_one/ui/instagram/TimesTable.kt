@@ -1,4 +1,4 @@
-package com.example.jc_test_one.ui.theme
+package com.example.jc_test_one.ui.instagram
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

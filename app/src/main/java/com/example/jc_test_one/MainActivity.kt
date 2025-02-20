@@ -8,9 +8,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Modifier
-import com.example.jc_test_one.ui.theme.InstagramProfileCard
+import com.example.jc_test_one.ui.botany.MainScreen
+import com.example.jc_test_one.ui.instagram.TimesTable
 import com.example.jc_test_one.ui.theme.JC_Test_OneTheme
-import com.example.jc_test_one.ui.theme.PostCard
+import com.example.jc_test_one.ui.vk.VkMainScreen
 
 
 class MainActivity : ComponentActivity() {
@@ -23,8 +24,11 @@ class MainActivity : ComponentActivity() {
                         .fillMaxSize()
                         .background(MaterialTheme.colorScheme.background)
                 ) {
+                    //TimesTable()
                     //InstagramProfileCard()
-                    PostCard()
+                    //PostCard()
+                    //VkMainScreen()
+                    MainScreen()
                 }
             }
         }

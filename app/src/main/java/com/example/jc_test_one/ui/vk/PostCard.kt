@@ -1,4 +1,4 @@
-package com.example.jc_test_one.ui.theme
+package com.example.jc_test_one.ui.vk
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -26,6 +26,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jc_test_one.R
+import com.example.jc_test_one.ui.theme.JC_Test_OneTheme
 
 @Composable
 fun PostCard() {
