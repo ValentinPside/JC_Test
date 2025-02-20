@@ -17,14 +17,22 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.jc_test_one.MainViewModel
 import com.example.jc_test_one.ui.theme.JC_Test_OneTheme
 
 @Composable
-fun MainScreen(){
+fun MainScreen(
+    mainViewModel: MainViewModel = viewModel(factory = MainViewModel.factory)
+){
+
+    val itemList = mainViewModel.itemList.collectAsState(emptyList())
+
     Column(modifier = Modifier
         .fillMaxSize()
         .background(MaterialTheme.colorScheme.background)){
@@ -35,13 +43,17 @@ fun MainScreen(){
         ) {
             TextField(modifier = Modifier
                 .weight(1f),
-                value = "",
-                onValueChange = {},
+                value = mainViewModel.newText.value,
+                onValueChange = { text ->
+                    mainViewModel.newText.value = text
+                },
                 label = {
                     Text(text = "Name...", modifier = Modifier)
                 }
             )
-            IconButton(onClick = {}) {
+            IconButton(onClick = {
+                mainViewModel.insertItem()
+            }) {
                 Icon( imageVector = Icons.Default.Add,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.onBackground)
@@ -51,8 +63,11 @@ fun MainScreen(){
             .height(5.dp))
         LazyColumn(modifier = Modifier
             .fillMaxWidth()) {
-            items(count = 6){
-                ListItem()
+            items(itemList.value){ item ->
+                ListItem(item){
+                    mainViewModel.nameEntity = it
+                    mainViewModel.newText.value = it.name
+                }
             }
         }
     }

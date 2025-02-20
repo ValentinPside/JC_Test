@@ -11,6 +11,7 @@ composeBom = "2024.04.01"
 navVersion = "2.8.6"
 roomVersion = "2.5.1"
 lifecycle = "2.5.0"
+ksp = "1.8.10-1.0.9"
 
 [libraries]
 room = { group = "androidx.room", name = "room-ktx", version.ref = "roomVersion"}
@@ -37,4 +38,6 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+
 

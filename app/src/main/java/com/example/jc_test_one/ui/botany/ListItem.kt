@@ -14,14 +14,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.jc_test_one.data.NameEntity
 
 @Composable
-fun ListItem(){
+fun ListItem(
+    item: NameEntity,
+    onClick: (NameEntity) -> Unit
+){
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
-            .clickable {  }
+            .clickable {
+                onClick(item)
+            }
     ){
         Row(
             modifier = Modifier
@@ -29,7 +35,7 @@ fun ListItem(){
             verticalAlignment = Alignment.CenterVertically
         ){
             Text(
-                text = "Test 1",
+                text = item.name,
                 modifier = Modifier
                     .fillMaxWidth()
                     .weight(1f)

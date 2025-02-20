@@ -6,17 +6,21 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(
-    entities = [NameEntity::class],
+    entities = [
+        NameEntity::class
+    ],
     version = 1
 )
-abstract class MainDb: RoomDatabase() {
+abstract class MainDb : RoomDatabase() {
 
-    companion object{
-        fun createDataBase(context: Context): MainDb{
+    abstract val dao : Dao
+
+    companion object {
+        fun createDataBase(context: Context): MainDb {
             return Room.databaseBuilder(
                 context,
                 MainDb::class.java,
-                "Test.db"
+                "test.db"
             ).build()
         }
     }
