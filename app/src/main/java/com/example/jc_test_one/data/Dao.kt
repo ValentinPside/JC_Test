@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface Dao {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertItem(nameEntity: NameEntity)
 

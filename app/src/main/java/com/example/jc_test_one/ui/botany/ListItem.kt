@@ -19,7 +19,8 @@ import com.example.jc_test_one.data.NameEntity
 @Composable
 fun ListItem(
     item: NameEntity,
-    onClick: (NameEntity) -> Unit
+    onClick: (NameEntity) -> Unit,
+    onClickDelete: (NameEntity) -> Unit
 ){
     Card(
         modifier = Modifier
@@ -42,7 +43,7 @@ fun ListItem(
                     .padding(10.dp)
             )
             IconButton(onClick = {
-
+                onClickDelete(item)
             }) {
                 Icon(imageVector = Icons.Default.Delete, contentDescription = null)
             }

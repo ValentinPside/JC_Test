@@ -11,7 +11,7 @@ import com.example.jc_test_one.data.MainDb
 import com.example.jc_test_one.data.NameEntity
 import kotlinx.coroutines.launch
 
-class MainViewModel(val database: MainDb) : ViewModel() {
+class MainViewModel(private val database: MainDb) : ViewModel() {
     val itemList = database.dao.getAllItems()
     val newText = mutableStateOf("")
     var nameEntity: NameEntity? = null
@@ -22,6 +22,10 @@ class MainViewModel(val database: MainDb) : ViewModel() {
         database.dao.insertItem(nameItem)
         nameEntity = null
         newText.value = ""
+    }
+
+    fun deleteItem(item: NameEntity) = viewModelScope.launch {
+        database.dao.deleteItem(item)
     }
 
     companion object {

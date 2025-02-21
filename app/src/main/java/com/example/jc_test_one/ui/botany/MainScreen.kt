@@ -29,16 +29,19 @@ import com.example.jc_test_one.ui.theme.JC_Test_OneTheme
 @Composable
 fun MainScreen(
     mainViewModel: MainViewModel = viewModel(factory = MainViewModel.factory)
-){
+) {
 
     val itemList = mainViewModel.itemList.collectAsState(emptyList())
 
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .background(MaterialTheme.colorScheme.background)){
-        Row(modifier = Modifier
-            .fillMaxWidth()
-            .background(MaterialTheme.colorScheme.background),
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.background)
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(MaterialTheme.colorScheme.background),
             verticalAlignment = Alignment.CenterVertically
         ) {
             TextField(modifier = Modifier
@@ -54,20 +57,32 @@ fun MainScreen(
             IconButton(onClick = {
                 mainViewModel.insertItem()
             }) {
-                Icon( imageVector = Icons.Default.Add,
+                Icon(
+                    imageVector = Icons.Default.Add,
                     contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onBackground)
+                    tint = MaterialTheme.colorScheme.onBackground
+                )
             }
         }
-        Spacer(modifier = Modifier
-            .height(5.dp))
-        LazyColumn(modifier = Modifier
-            .fillMaxWidth()) {
-            items(itemList.value){ item ->
-                ListItem(item){
-                    mainViewModel.nameEntity = it
-                    mainViewModel.newText.value = it.name
-                }
+        Spacer(
+            modifier = Modifier
+                .height(5.dp)
+        )
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxWidth()
+        ) {
+            items(itemList.value) { item ->
+                ListItem(
+                    item,
+                    {
+                        mainViewModel.nameEntity = it
+                        mainViewModel.newText.value = it.name
+                    },
+                    {
+                        mainViewModel.deleteItem(it)
+                    }
+                )
             }
         }
     }
